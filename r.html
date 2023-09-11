@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Game</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <center>
+    <h1>Rock Paper Scissors</h1></center><br><br>
+    <center>
+    <div class="choices" >
+        <div class="choice" onclick="play('rock')"><img src="1.png" onclick ="getimg('1.png')">
+            <button  onclick="ran()">Rock</button></div>
+        <div class="choice" onclick="play('paper')" ><img src="2.png" onclick ="getimg('2.png')">
+            <button  onclick="ran()">Paper</button></div>
+        <div class="choice" onclick="play('scissors')"><img src="3.png" onclick ="getimg('3.png')"><br><br><br>
+            <button  onclick="ran()">Scissors</button></div>
+    </div>
+    <div id="result"></div>
+</center>
+
+    <script>
+        function play(player) {
+            const choices = ['rock', 'paper', 'scissors'];
+            const computer = choices[Math.floor(Math.random() * 3)];
+
+            let result;
+
+            if (player === computer) {
+                alert('Its a tie!');
+            } else if (
+                (player=== 'rock' && computer === 'scissors') ||
+                (player === 'paper' && computer === 'rock') ||
+                (player=== 'scissors' && computer === 'paper')
+            ) {
+                alert('You win!');
+            } else {
+                alert('You Lost!');
+            }
+
+            document.getElementById('result').textContent = `You choose ${player}, computer choose ${computer}. ${result}`;
+        }
+    </script>
+</body>
+</html>
